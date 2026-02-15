@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "733940710674",
+    "project_id": "digbin4",
+    "storage_bucket": "digbin4.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:733940710674:android:97c6e4803bf964b92147cb",
+        "android_client_info": {
+          "package_name": "com.example.digbin0004"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBHwTbWWZg0hcN6LTnUHVJe6lG7-q5nk8E"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

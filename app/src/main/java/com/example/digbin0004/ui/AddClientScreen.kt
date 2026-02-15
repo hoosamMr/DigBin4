@@ -5,16 +5,19 @@ import androidx.compose.material3.*
 import androidx.compose.runtime.*
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
-import com.example.digbin0004.firebase.ClientFirebaseService
-import com.example.digbin0004.model.Client
+//import androidx.hilt.navigation.compose.hiltViewModel
+import androidx.hilt.lifecycle.viewmodel.compose.hiltViewModel
+import com.example.digbin0004.viewmodel.ClientViewModel
 
 @Composable
-fun AddClientScreen(modifier: Modifier = Modifier) {
+fun AddClientScreen(
+    modifier: Modifier = Modifier,
+    viewModel: ClientViewModel = hiltViewModel()
+) {
 
     var name by remember { mutableStateOf("") }
-    var message by remember { mutableStateOf("") }
 
-    val clientService = remember { ClientFirebaseService() }
+    val message by viewModel.message.collectAsState()
 
     Column(
         modifier = modifier
@@ -43,22 +46,12 @@ fun AddClientScreen(modifier: Modifier = Modifier) {
             modifier = Modifier.fillMaxWidth(),
             onClick = {
                 if (name.isBlank()) {
-                    message = "Client name cannot be empty"
+                    viewModel.setMessage("Client name cannot be empty")
                     return@Button
                 }
 
-                val client = Client(name = name)
-
-                clientService.addClient(
-                    client = client,
-                    onSuccess = {
-                        message = "Client saved successfully"
-                        name = ""
-                    },
-                    onError = {
-                        message = it.message ?: "Unknown error"
-                    }
-                )
+                viewModel.addClient(name)
+                name = ""
             }
         ) {
             Text("Save Client")

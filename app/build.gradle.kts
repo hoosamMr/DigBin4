@@ -4,6 +4,7 @@ plugins {
     alias(libs.plugins.hilt)
     alias(libs.plugins.ksp)
     id("com.google.gms.google-services")
+    alias(libs.plugins.jetbrains.kotlin.serialization)
 
 }
 
@@ -67,5 +68,14 @@ dependencies {
     //Hilt and KSP dependencies
     implementation(libs.hilt.android)
     ksp(libs.hilt.compiler)
+    implementation(libs.androidx.hilt.navigation.compose)
 
+    //Navigation3 dependencies
+    implementation(libs.androidx.navigation3.ui)
+    implementation(libs.androidx.navigation3.runtime)
+    implementation(libs.androidx.lifecycle.viewmodel.navigation3)
+    implementation(libs.androidx.material3.adaptive.navigation3)
+    implementation(libs.kotlinx.serialization.core)
+    //Coroutine dependencies
+    implementation(libs.kotlinx.coroutines.play.services)
 }

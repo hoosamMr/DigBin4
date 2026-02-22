@@ -15,22 +15,36 @@ class ClientViewModel @Inject constructor(
     private val repository: ClientRepository
 ) : ViewModel() {
 
-    private val _message = MutableStateFlow("")
-    val message: StateFlow<String> = _message
+    private val _name = MutableStateFlow("")
+    val name: StateFlow<String> = _name
 
-    fun setMessage(value: String) {
-        _message.value = value
+    private val _clients = MutableStateFlow<List<Client>>(emptyList())
+    val clients: StateFlow<List<Client>> = _clients
+
+    init {
+        loadClients()
     }
+
+    private fun loadClients() = viewModelScope.launch { _clients.value = repository.getClients() }
+
+    fun setName(value: String) {
+        _name.value = value
+    }
+
 
     fun addClient(name: String) {
         viewModelScope.launch {
             try {
                 val client = Client(name = name)
                 repository.addClient(client)
-                _message.value = "Client saved successfully"
+                _name.value = "Client saved successfully"
             } catch (e: Exception) {
-                _message.value = e.message ?: "Unknown error"
+                _name.value = e.message ?: "Unknown error"
             }
         }
     }
+
+//    suspend fun getClients(): List<Client> {
+//        return repository.getClients()
+//    }
 }

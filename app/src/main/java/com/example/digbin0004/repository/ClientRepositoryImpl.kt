@@ -50,8 +50,8 @@ class ClientRepositoryImpl @Inject constructor(
             .await()
     }
     suspend fun getClientByName(name : String) : Client?{
-      val snapshot = firestore.collection("clients")
-          .whereEqualTo("name",name.trim())
+      val snapshot =
+          firestore.collection("clients").whereEqualTo("name",name.trim())
           .limit(1).get().await()
         //return snapshot.toObject(Client::class.java)
         return snapshot.documents.firstOrNull()?.toObject(Client::class.java)

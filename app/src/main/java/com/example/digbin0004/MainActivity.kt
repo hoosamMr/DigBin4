@@ -8,6 +8,7 @@ import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.padding
 import androidx.compose.material3.Scaffold
 import androidx.compose.ui.Modifier
+import com.example.digbin0004.navigation.AppNavigation
 import com.example.digbin0004.ui.client.AddClientScreen
 import com.example.digbin0004.ui.theme.DigBin0004Theme
 import dagger.hilt.android.AndroidEntryPoint
@@ -20,7 +21,7 @@ class MainActivity : ComponentActivity() {
         setContent {
             DigBin0004Theme {
                 Scaffold(modifier = Modifier.fillMaxSize()) { innerPadding ->
-                    AddClientScreen(
+                    AppNavigation(
                         modifier = Modifier.padding(innerPadding)
                     )
                 }

@@ -14,12 +14,13 @@ import com.example.digbin0004.viewmodel.ClientViewModel
 @Composable
 fun AddClientScreen(
     modifier: Modifier = Modifier,
-    viewModel: ClientViewModel = hiltViewModel()
+    viewModel: ClientViewModel = hiltViewModel(),
+    onBack: () -> Unit
 ) {
 
     var name by remember { mutableStateOf("") }
 
-    val message by viewModel.message.collectAsState()
+    val message by viewModel.name.collectAsState()
 
     AddClientScreenContent(
         modifier = modifier,
@@ -34,7 +35,8 @@ fun AddClientScreen(
 
             viewModel.addClient(name)
             name = ""
-        }
+        },
+        onBack = onBack
     )
 }
 
@@ -44,7 +46,8 @@ fun AddClientScreenContent(
     name: String,
     onNameChange: (String) -> Unit,
     message: String,
-    onSaveClick: () -> Unit
+    onSaveClick: () -> Unit,
+    onBack: () -> Unit
 ) {
     Column(
         modifier = modifier
@@ -52,7 +55,11 @@ fun AddClientScreenContent(
             .padding(16.dp),
         verticalArrangement = Arrangement.Center
     ) {
-
+        Button(
+            onClick = onBack,
+        ) {
+            Text("<-")
+        }
         Text(
             text = "Add Client",
             style = MaterialTheme.typography.headlineMedium
@@ -92,7 +99,8 @@ fun AddClientScreenPreview() {
             name = "John Doe",
             onNameChange = {},
             message = "Client added successfully",
-            onSaveClick = {}
+            onSaveClick = {},
+            onBack = {}
         )
     }
 }

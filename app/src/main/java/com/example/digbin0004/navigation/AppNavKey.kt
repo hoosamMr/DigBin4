@@ -1,17 +1,20 @@
 package com.example.digbin0004.navigation
 
+import androidx.navigation3.runtime.NavKey
 import kotlinx.serialization.Serializable
 
-sealed interface AppNavKey
+@Serializable
+sealed interface AppNavKey : NavKey
+
 
 @Serializable
 data object HomeKey : AppNavKey
 
 @Serializable
-data object AddClientsKey : AppNavKey
+data object AddClientKey : AppNavKey
 
-@Serializable
-data object ClientsListKey : AppNavKey
+
+
 
 
 

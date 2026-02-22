@@ -12,6 +12,10 @@ class FirebaseClientRepository(
         TODO("Not yet implemented")
     }
 
+    override suspend fun deleteClient(client: Client) {
+        TODO("Not yet implemented")
+    }
+
     override suspend fun getClients(): List<Client> {
         TODO("Not yet implemented")
     }

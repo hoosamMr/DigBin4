@@ -16,7 +16,7 @@ import androidx.hilt.lifecycle.viewmodel.compose.hiltViewModel
 import com.example.digbin0004.viewmodel.ClientViewModel
 
 @Composable
- fun ClientsListView(
+ fun ClientsListScreen(
     modifier : Modifier = Modifier,
     viewModel: ClientViewModel = hiltViewModel(),
     /*clients: List<Client>,

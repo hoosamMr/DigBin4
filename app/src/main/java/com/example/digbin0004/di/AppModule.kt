@@ -1,7 +1,8 @@
 package com.example.digbin0004.di
 
-import com.example.digbin0004.repository.ClientRepository
-import com.example.digbin0004.repository.ClientRepositoryImpl
+
+import com.example.digbin0004.repository.client.ClientRepository
+import com.example.digbin0004.repository.client.ClientRepositoryImpl
 import com.google.firebase.firestore.FirebaseFirestore
 import dagger.Module
 import dagger.Provides
@@ -24,6 +25,16 @@ class AppModule {
         firestore : FirebaseFirestore
     ) : ClientRepository = ClientRepositoryImpl(firestore)
 
+//    @Provides
+//    @Singleton
+//    fun provideFireStoreService(firebaseFirestore : FirebaseFirestore) : FirestoreService = FirestoreService(firebaseFirestore)
+
+
+//    @Provides
+//    @Singleton
+//    fun provideFirestore(): FirebaseFirestore {
+//        return FirebaseFirestore.getInstance()
+    }
 
 
 

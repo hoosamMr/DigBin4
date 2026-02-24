@@ -1,4 +1,4 @@
-package com.example.digbin0004.repository
+package com.example.digbin0004.repository.client
 
 import android.util.Log
 import com.example.digbin0004.model.Client
@@ -8,7 +8,7 @@ import javax.inject.Inject
 
 class ClientRepositoryImpl @Inject constructor(
     private val firestore : FirebaseFirestore
-) : ClientRepository{
+) : ClientRepository {
     override suspend fun addClient(client: Client) {
 
         val trimmedName = client.name.trim()
@@ -54,7 +54,8 @@ class ClientRepositoryImpl @Inject constructor(
           firestore.collection("clients").whereEqualTo("name",name.trim())
           .limit(1).get().await()
         //return snapshot.toObject(Client::class.java)
-        return snapshot.documents.firstOrNull()?.toObject(Client::class.java)
+        return snapshot.documents.firstOrNull()?.toObject(
+            Client::class.java)
 
 
     }

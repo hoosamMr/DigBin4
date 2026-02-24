@@ -1,4 +1,4 @@
-package com.example.digbin0004.repository
+package com.example.digbin0004.repository.client
 
 import com.example.digbin0004.model.Client
 

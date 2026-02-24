@@ -3,7 +3,7 @@ package com.example.digbin0004.viewmodel
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.example.digbin0004.model.Client
-import com.example.digbin0004.repository.ClientRepository
+import com.example.digbin0004.repository.client.ClientRepository
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow

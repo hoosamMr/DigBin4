@@ -1,7 +1,7 @@
 package com.example.digbin0004.repository.firebase
 
 import com.example.digbin0004.model.Client
-import com.example.digbin0004.repository.ClientRepository
+import com.example.digbin0004.repository.client.ClientRepository
 import com.google.firebase.firestore.FirebaseFirestore
 
 

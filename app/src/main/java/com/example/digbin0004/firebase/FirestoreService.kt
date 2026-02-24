@@ -1,4 +1,4 @@
-package com.example.digbin0004.data.firebase
+package com.example.digbin0004.firebase
 
 import com.google.firebase.firestore.FirebaseFirestore
 import kotlinx.coroutines.tasks.await
@@ -27,6 +27,16 @@ class FirestoreService @Inject constructor(
             val items = snapshot.documents.mapNotNull { it.toObject(clazz) }
             Result.success(items)
         } catch (e: Exception) {
+            Result.failure(e)
+        }
+    }
+    //read one
+    suspend fun <T : Any> get(collectionPath: String, id: String, clazz: Class<T>): Result<T?> {
+        return try {
+            val snapshot = db.collection(collectionPath).document(id).get().await()
+           val item = snapshot.toObject(clazz)
+            Result.success(item)
+        }catch (e: Exception){
             Result.failure(e)
         }
     }

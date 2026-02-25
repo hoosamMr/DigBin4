@@ -29,19 +29,20 @@ fun HomeScreen(
             TopAppBar(title = { Text("DigBin") })
         },
         bottomBar = {
-            NavigationBar {
-                NavigationBarItem(
-                    selected = selectedTab == HomeTab.CLIENTS,
-                    onClick = { selectedTab = HomeTab.CLIENTS },
-                    icon = {
-                        Icon(
-                            imageVector = Icons.Default.AccountCircle,
-                            contentDescription = "Clients"
-                        )
-                    },
-                    label = { Text("Clients") }
-                )
-            }
+
+//            NavigationBar {
+//                NavigationBarItem(
+//                    selected = selectedTab == HomeTab.CLIENTS,
+//                    onClick = { selectedTab = HomeTab.CLIENTS },
+//                    icon = {
+//                        Icon(
+//                            imageVector = Icons.Default.AccountCircle,
+//                            contentDescription = "Clients"
+//                        )
+//                    },
+//                    label = { Text("Clients") }
+//                )
+//            }
         },
         floatingActionButton = {
             // FAB lives here — triggers AddClient however you decide (screen or bottom sheet)

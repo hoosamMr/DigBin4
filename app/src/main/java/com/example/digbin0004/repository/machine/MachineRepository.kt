@@ -6,7 +6,7 @@ interface MachineRepository {
     suspend fun addMachine(machine: Machine)
     suspend fun updateMachine(machine: Machine)
     suspend fun deleteMachine(machine: Machine)
-    suspend fun getMachine(machine: Machine): Machine
+    suspend fun getMachine(id : String): Machine?
     suspend fun getMachines(): List<Machine>
 
 }
